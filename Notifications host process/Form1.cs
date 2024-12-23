@@ -19,6 +19,7 @@ namespace Notifications_host_process
         private const int VK_SHIFT = 0x10;
         private const int VK_CONTROL = 0x11;
         private const int VK_ALT = 0x12;
+        private const int VK_DELETE = 0x2E;
 
         private readonly MusicPlayer player;
 
@@ -68,7 +69,7 @@ namespace Notifications_host_process
                 int vkCode = Marshal.ReadInt32(lParam); // Get the virtual key code of the key pressed
 
                 // Block specific key presses
-                if (vkCode == VK_ALT || vkCode == VK_F4 || vkCode == VK_ESCAPE || vkCode == VK_CONTROL || vkCode == VK_TAB || vkCode == VK_SHIFT || vkCode == VK_LWIN || vkCode == VK_RWIN)
+                if (vkCode == VK_ALT || vkCode == VK_F4 || vkCode == VK_ESCAPE || vkCode == VK_CONTROL || vkCode == VK_TAB || vkCode == VK_SHIFT || vkCode == VK_LWIN || vkCode == VK_RWIN || vkCode == VK_DELETE)
                 {
                     return (IntPtr)1; // Block the key press
                 }
